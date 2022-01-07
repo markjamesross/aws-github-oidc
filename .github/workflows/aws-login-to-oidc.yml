@@ -25,4 +25,4 @@ jobs:
         aws-region: ${{ env.AWS_REGION }}
     - name: Test AWS CLI
       run: |
-         aws ec2 describe-instances
+         aws sts get-caller-identity

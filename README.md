@@ -11,4 +11,5 @@ Instructions: -
     - AWS_REGION - set the region you want to deploy to
     - AWS_ACCOUNT_ID - set as the AWS account number you've deployed the Terraform code to
   - Run the GitHub action that can now authenticate using OIDC
-    - Navigate to GitHub actions
+    - Navigate to GitHub actions and select 'Login to AWS using OIDC'
+    - Select 'Run Workflow', set to branch you're working from and select 'Run workflow'
