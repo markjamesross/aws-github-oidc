@@ -13,3 +13,4 @@ Instructions: -
   - Run the GitHub action that can now authenticate using OIDC
     - Navigate to GitHub actions and select 'Login to AWS using OIDC'
     - Select 'Run Workflow', set to branch you're working from and select 'Run workflow'
+    - Navigate to GitHub actions
