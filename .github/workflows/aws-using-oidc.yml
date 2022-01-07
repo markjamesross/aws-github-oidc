@@ -12,7 +12,7 @@ jobs:
       id-token: write
       contents: read
     env:
-      AWS_REGION: ${{ secrets.AWS_REGION }}
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
       AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
       AWS_ROLE: "github-actions-pipeline-role"
 
@@ -23,11 +23,10 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v1
       with:
         role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/${{ env.AWS_ROLE }}
-        aws-region: ${{ env.AWS_REGION }}
+        aws-region: ${{ env.AWS_DEFAULT_REGION }}
     - name: Confirm logged in user
       run: |
          aws sts get-caller-identity
-    - name: Create S3 Bucket as demo
+    - name: Create SNS topic as demo
       run: |
-         BUCKETNAME="${{ env.AWS_ACCOUNT_ID }}-$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 40 | head -n 1)"
-         aws s3api create-bucket --bucket $BUCKETNAME
+         aws sns create-topic --name demo-topic
