@@ -1,4 +1,5 @@
 name: AWS using OIDC
+
 on:
   workflow_dispatch:
 
