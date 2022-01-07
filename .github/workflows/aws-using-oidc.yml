@@ -29,5 +29,5 @@ jobs:
          aws sts get-caller-identity
     - name: Create S3 Bucket as demo
       run: |
-         BUCKETNAME="${{ env.AWS_ACCOUNT_ID }}-$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 40 | head -n 1)"
-         aws s3api create-bucket --bucket markjamesross-demo-bucket
+         BUCKETNAME=${{ env.AWS_ACCOUNT_ID }}-$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 40 | head -n 1)
+         aws s3api create-bucket --bucket $BUCKETNAME --create-bucket-configuration LocationConstraint=${{ env.AWS_REGION }}
