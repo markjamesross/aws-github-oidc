@@ -1,4 +1,4 @@
-name: Login to AWS using OIDC
+name: AWS using OIDC
 on:
   workflow_dispatch:
 
