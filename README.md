@@ -1,7 +1,7 @@
 # aws-github-oidc
 Repo using OIDC to authenticate to AWS from GitHub Actions
 
-[overview_image](images/aws_oidc.jpg)
+![overview_image](images/aws_oidc.jpg)
 
 Instructions: -
   - Authenticate to AWS account you want to depploy to using youre typical method (temp creds, access key / secret access key etc)
