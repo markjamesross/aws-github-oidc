@@ -27,8 +27,6 @@ jobs:
     - name: Confirm logged in user
       run: |
          aws sts get-caller-identity
-    - name: Create S3 Bucket as demo
+    - name: Create SNS topic as demo
       run: |
-         BUCKETNAME=${{ env.AWS_ACCOUNT_ID }}-$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 40 | head -n 1)
-         echo $BUCKETNAME
-         aws s3api create-bucket --bucket markjamesross-demo-bucket-from-pipeline --create-bucket-configuration LocationConstraint=${{ env.AWS_DEFAULT_REGION }}
+         aws sns create-topic --name demo-topic
