@@ -23,3 +23,7 @@ data "aws_iam_policy_document" "pipeline" {
     resources = ["*"]
   }
 }
+#Get info on Github certificate for setting up OIDC
+data "tls_certificate" "github" {
+  url = "https://token.actions.githubusercontent.com/.well-known/openid-configuration"
+}
